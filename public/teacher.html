@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>ครู - แสดงผล</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="/socket.io/socket.io.js"></script>
+  <script defer src="script_teacher.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>👩‍🏫 ระบบกระดิ่งห้องเรียน (ครู)</h1>
+    <h2>ลำดับการกดกระดิ่ง:</h2>
+    <ul id="bellListDisplay" class="bell-list"></ul>
+    <button id="resetBtn">🔄 รีเซ็ต</button>
+    <audio id="bellSound" src="bell.mp3" preload="auto"></audio>
+	<p style="background-color:#F5F5F5;font-size:20px;">By KruBhopit</p>
+  </div>
+</body>
+</html>

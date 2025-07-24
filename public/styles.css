@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap');
+
+body {
+  font-family: 'Kanit', sans-serif;
+  background: linear-gradient(to right, #667eea, #764ba2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+.container {
+  background: white;
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  text-align: center;
+}
+input {
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 10px;
+  border: 2px solid #ccc;
+  width: 80%;
+  max-width: 300px;
+}
+button {
+  margin-top: 15px;
+  padding: 15px 30px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  transform: scale(1.05);
+}
+button:active {
+  transform: scale(0.95);
+}
+#bellBtn {
+  font-size: 24px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-top: 20px;
+}
+.bell-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+.bell-list li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-size: 18px;
+}

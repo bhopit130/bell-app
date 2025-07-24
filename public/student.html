@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <title>นักเรียน - กดกระดิ่ง</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="/socket.io/socket.io.js"></script>
+  <script defer src="script_student.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>🔔 ระบบกระดิ่งห้องเรียน (นักเรียน)</h1>
+    <input type="text" id="studentName" placeholder="กรอกชื่อของคุณ" />
+    <button id="confirmBtn">ยืนยันชื่อ</button>
+
+    <div id="bellSection" style="display:none;">
+      <h2 id="welcomeText"></h2>
+      <button id="bellBtn">🔔<br>กดกระดิ่ง</button>
+      <p id="sentStatus" style="display:none; color:green; font-size: 18px; margin-top: 10px;">✅ ส่งแล้ว</p>
+	<p style="background-color:#F5F5F5;font-size:20px;">By KruBhopit</p>
+    </div>
+  </div>
+</body>
+</html>
