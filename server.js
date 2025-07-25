@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const http = require('http').createServer(app);
-const io = require('socket.io')(http);
+const io = require('socket.io')(http); // ✅ ถูกต้อง
 
 let bellList = [];
 
@@ -18,13 +18,12 @@ io.on('connection', (socket) => {
 
   socket.on('reset', () => {
     bellList = [];
-    io.emit('bellList', bellList);  // ส่งรายการใหม่ (ว่าง)
-    io.emit('reset');               // 🔥 จุดสำคัญ: แจ้งนักเรียน reset ปุ่ม
+    io.emit('bellList', bellList);
+    io.emit('reset');
   });
 });
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+http.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
-
