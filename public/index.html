@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ระบบกดกระดิ่งนักเรียน</title>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Kanit', sans-serif;
+      background-color: #002B5B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      flex-direction: column;
+      color: #002B5B;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 40px 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 450px;
+      width: 90%;
+    }
+
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 1.2em;
+      font-weight: normal;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 15px;
+      font-size: 1.1em;
+      font-weight: bold;
+      background-color: #002B5B;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      margin: 10px 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #014aad;
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.95em;
+      color: #666;
+    }
+
+    /* Modal Style */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.6);
+    }
+
+    .modal-content {
+      background-color: white;
+      color: #002B5B;
+      margin: 5% auto;
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 600px;
+      position: relative;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+
+    .close {
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #aaa;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+
+    .modal h3 {
+      margin-top: 0;
+    }
+
+    .modal ul, .modal ol {
+      padding-left: 20px;
+    }
+
+    .modal section {
+      margin-bottom: 25px;
+    }
+
+    .modal strong {
+      color: #000;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>ระบบกดกระดิ่งนักเรียน</h1>
+    <h2>กรุณาเลือกบทบาทของคุณ</h2>
+    <button class="btn" onclick="location.href='student.html'">👩‍🎓 นักเรียน</button>
+    <button class="btn" onclick="location.href='teacher.html'">👨‍🏫 ครู</button>
+    <button class="btn" onclick="openModal()">📘 วิธีใช้งาน</button>
+    <footer>By KruBhopit โรงเรียนดีบุกพังงาวิทยายน</footer>
+  </div>
+
+  <!-- Modal Popup -->
+  <div id="guideModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">&times;</span>
+      <h3>📘 คู่มือการใช้งานระบบกดกระดิ่งนักเรียน</h3>
+
+      <section>
+        <strong>🔰 ภาพรวมระบบ:</strong>
+        <p>แอพนี้ออกแบบมาเพื่อให้นักเรียนสามารถ “กดกระดิ่ง” เพื่อแจ้งครูในชั้นเรียน โดยครูสามารถดูรายชื่อผู้กดได้แบบเรียลไทม์ พร้อมลำดับและเวลา</p>
+      </section>
+
+      <section>
+        <strong>🏠 หน้าแรก (index.html)</strong>
+        <ul>
+          <li>แสดงตัวเลือก “นักเรียน” และ “ครู”</li>
+          <li>ผู้ใช้งานเลือกบทบาทเพื่อนำไปยังหน้าที่เกี่ยวข้อง</li>
+        </ul>
+      </section>
+
+      <section>
+        <strong>👩‍🎓 หน้านักเรียน (student.html)</strong>
+        <ol>
+          <li>กรอกชื่อของนักเรียน</li>
+          <li>คลิก “ยืนยันชื่อ” เพื่อเข้าสู่หน้ากดกระดิ่ง</li>
+          <li>กดปุ่ม 🔔 เพื่อแจ้งครู</li>
+          <li>ระบบจะแสดงข้อความ “✅ ส่งแล้ว” และป้องกันการกดซ้ำ</li>
+        </ol>
+      </section>
+
+      <section>
+        <strong>👨‍🏫 หน้าครู (teacher.html)</strong>
+        <ul>
+          <li>แสดงรายชื่อผู้กดกระดิ่งเรียลไทม์</li>
+          <li>แสดงเวลาและลำดับการกด</li>
+          <li>สามารถกด “รีเซ็ต” เพื่อล้างรายชื่อทั้งหมด</li>
+        </ul>
+      </section>
+
+      <section>
+        <strong>🧾 หมายเหตุ:</strong>
+        <ul>
+          <li>ระบบไม่ต้องสมัคร ไม่ต้องล็อกอิน</li>
+          <li>ใช้งานได้ทั้งบนมือถือ แท็บเล็ต และคอมพิวเตอร์</li>
+          <li>ระบบทำงานแบบ Real-time ด้วย Socket.IO</li>
+        </ul>
+      </section>
+    </div>
+  </div>
+
+  <script>
+    const modal = document.getElementById("guideModal");
+
+    function openModal() {
+      modal.style.display = "block";
+    }
+
+    function closeModal() {
+      modal.style.display = "none";
+    }
+
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        closeModal();
+      }
+    }
+  </script>
+</body>
+</html>
